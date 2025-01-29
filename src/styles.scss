@@ -1,1 +1,249 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
+
+// @import '~admin-lte/plugins/fontawesome-free/css/all.min.css';
+// @import '~admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
+
+@import 'ngx-toastr/toastr';
+
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+/* width */
+::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.content {
+    padding: 0 0.5rem;
+}
+
+// Sidebar menu animation
+// Needed for open/close menu animation for menus with child nodes
+.nav .nav-item:not(.menu-open) > .ng-trigger-openClose,
+.nav .nav-item > .ng-trigger-openClose.ng-animating {
+    overflow: hidden;
+    display: block;
+}
+
+// Override original AdminLTE transform
+.nav-sidebar .menu-is-opening > .nav-link i.right,
+.nav-sidebar .menu-is-opening > .nav-link svg.right,
+.nav-sidebar .menu-open > .nav-link i.right,
+.nav-sidebar .menu-open > .nav-link svg.right {
+    transform: none;
+}
+
+app-root.sidebar-mini.sidebar-open.login-page {
+
+  background-color: #e9ecef !important;
+}
+
+
+hr {
+  margin: 0;
+}
+// .mat-form-field-appearance-outline .mat-form-field-outline {
+//   display: flex;
+//   position: absolute;
+//   top: 10px !important;
+//   left: 0px;
+//   right: 0;
+//   bottom: -4px !important;
+//   pointer-events: none;
+// }
+.mat-select-arrow-wrapper {
+  height: 0px !important;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+// .font7 {
+//   font-size: 0.9rem;
+//   vertical-align: top;
+//   margin-top: 0.7rem !important;
+// }
+// .content-wrapper {
+//   background-color: #fff;
+// }
+@font-face {
+  font-family: BeVietnamPro;
+  src: url(assets/fonts/BeVietnamPro/BeVietnamPro-Medium.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: BeVietnamPro;
+  src: url(assets/fonts/BeVietnamPro/BeVietnamPro-Bold.ttf);
+  font-weight: bolder;
+}
+@font-face {
+  font-family: BeVietnamPro;
+  src: url(assets/fonts/BeVietnamPro/BeVietnamPro-Light.ttf);
+  font-weight:lighter;
+}
+@font-face {
+  font-family: BeVietnamPro;
+  src: url(assets/fonts/BeVietnamPro/BeVietnamPro-Regular.ttf);
+  font-weight:500;
+}
+
+// .bvp-font{
+//   font-family: "BeVietnamPro",sans-serif !important;
+// }
+
+
+
+  // for mat-formfield box 
+  .mdc-notched-outline {
+    display: flex;
+    position: absolute;
+    // top: 0;
+    // right: 0;
+    // left: 0;
+    top: 10px !important;
+    left: 0px;
+    right: 0;
+    bottom: -4px !important;
+    box-sizing: border-box;
+    // width: 100%;
+    // max-width: 100%;
+    height: 58% !important;
+    // text-align: left;
+    pointer-events: none;
+  }
+  
+  // for date calendar icon ripple
+  // .mat-mdc-icon-button .mat-mdc-button-ripple, .mat-mdc-icon-button .mat-mdc-button-persistent-ripple, .mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before {
+  .mat-mdc-button-persistent-ripple::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* position: absolute; */
+    pointer-events: none;
+    border-radius: inherit;
+    box-shadow: none !important;
+    display: none;
+   }
+  :host ::ng-deep .mat-datepicker-toggle button.mat-icon-button {
+    background: none !important; /* Ensure no background on default state */
+    box-shadow: none !important; /* Ensure no shadow */
+  }
+  
+  :host ::ng-deep .mat-datepicker-toggle button.mat-icon-button.mat-focus-indicator {
+    outline: none !important; /* Remove focus outline */
+    background: none !important; /* Remove background on focus */
+  }
+  
+  :host ::ng-deep .mat-datepicker-toggle button.mat-icon-button:active {
+    background: none !important; /* Remove background on click */
+    box-shadow: none !important; /* Remove shadow on click */
+  }
+  
+// For mat-toggle
+html .mat-mdc-slide-toggle.mat-accent {
+  /* --mdc-switch-selected-focus-state-layer-color: #d81b60; */
+   --mdc-switch-selected-handle-color: #1c84ee; 
+  /* --mdc-switch-selected-hover-state-layer-color: #d81b60; */
+  /* --mdc-switch-selected-pressed-state-layer-color: #d81b60; */
+  /* --mdc-switch-selected-focus-handle-color: #880e4f; */
+  /* --mdc-switch-selected-hover-handle-color: #880e4f; */
+  /* --mdc-switch-selected-pressed-handle-color: #880e4f; */
+  /* --mdc-switch-selected-focus-track-color: #f06292; */
+  /* --mdc-switch-selected-hover-track-color: #f06292; */
+  /* --mdc-switch-selected-pressed-track-color: #f06292; */
+   --mdc-switch-selected-track-color: #1c84ee; 
+}
+
+html .mat-mdc-slide-toggle.mat-accent:hover {
+  /* --mdc-switch-selected-focus-state-layer-color: #d81b60; */
+   --mdc-switch-selected-handle-color: #1c84ee; 
+  /* --mdc-switch-selected-hover-state-layer-color: #d81b60; */
+  /* --mdc-switch-selected-pressed-state-layer-color: #d81b60; */
+  /* --mdc-switch-selected-focus-handle-color: #880e4f; */
+  /* --mdc-switch-selected-hover-handle-color: #880e4f; */
+  /* --mdc-switch-selected-pressed-handle-color: #880e4f; */
+  /* --mdc-switch-selected-focus-track-color: #f06292; */
+  /* --mdc-switch-selected-hover-track-color: #f06292; */
+  /* --mdc-switch-selected-pressed-track-color: #f06292; */
+   --mdc-switch-selected-track-color: #1c84ee; 
+}
+// ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+//   background-color: blue;
+// }
+
+// ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+//   background-color: blue;
+// }
+
+.mdc-switch__ripple {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* position: absolute; */
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: none !important;
+  display: none;
+
+}
+
+// .mdc-switch__ripple {
+//   background-color: transparent !important;
+// }
+
+html .mat-mdc-slide-toggle.mat-accent:hover {
+  background-color: transparent !important;
+  // color: transparent !important;
+  // display: none !important;
+}
+html .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb:hover {
+  background-color: transparent !important;
+  color: transparent !important;
+  // display: none !important;
+}
+// .mat-mdc-slide-toggle.mat-accent:hover {
+//   background-color: transparent !important;
+// }
+
+// .mat-mdc-slide-toggle.mat-accent:focus,
+// .mat-mdc-slide-toggle.mat-accent:active {
+//   background-color: transparent !important;
+// }
+
+// html .mat-mdc-slide-toggle.mat-accent.mat-mdc-slide-toggle-checked .mdc-switch__ripple {
+//   background-color: transparent !important;
+// }
+
+
+// For mat-spinner
+html {
+  --mdc-circular-progress-active-indicator-color: #1c84ee;
+}
+html .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: #1c84ee;
+}

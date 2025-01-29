@@ -1,0 +1,6 @@
+<app-title-header titleText="Chargeback List"></app-title-header>
+<div class="card" style="margin: 10px;padding: 1rem;">
+<app-title-header [startEndDates]="dateValue" [maxDate]="todayDate" [searchButton]="true" (onSearch)="searchChargeback($event)"></app-title-header>
+<app-advance-table [DataLoader]="chargebackCollumnLoading" [rowCount]="rowCount" [TableCollumnData]="chargebackCollumns" [TableData]="chargebackRows"></app-advance-table>
+<app-advance-table-paginator [DataLoader]="chargebackCollumnLoading" [paginatorBlock]="paginatorBlock" [pageNo]="currentQuery.PageNo" [rowCount]="rowCount" [pageCount]="pageCount" [selectedPageCount]="currentQuery.PageSize" [pagesTotal]="pagesTotal" (onPaginatorChange)="onPaginatorChange($event)"></app-advance-table-paginator>
+</div>

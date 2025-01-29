@@ -1,0 +1,23 @@
+<section class="content">
+    <ng-container *ngIf="!DataLoader">
+    <div class="container-fluid">
+        <div class="row">
+            <ng-container *ngFor="let cards of cardData">
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-white">
+                        <i-feather [name]="cards.feather" [ngStyle]="{ 'color': cards.color }" style="float: right;"></i-feather>
+                        <div class="inner">
+                            <p>{{cards.name}}</p>
+                            <h5 style="color:#495057;font-weight: bold;">{{cards.value}}</h5>
+                        </div>
+
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    </ng-container>
+    <ng-container *ngIf="DataLoader">
+        <mat-spinner style="left: 40%;margin: 6rem;"></mat-spinner>
+    </ng-container>
+</section>

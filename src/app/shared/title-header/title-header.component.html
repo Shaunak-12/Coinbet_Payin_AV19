@@ -1,0 +1,59 @@
+
+<div class="container-fluid" style="padding: 0%;">
+    <div class="{{classes}}" style="padding: 0rem 0.5rem 0rem .5rem;">
+    <div class="row">
+        <div class="col-sm-3">
+            <span *ngIf="titleText" style="line-height: 3rem;font-weight: bold;font-size: 1.25rem;vertical-align: text-top;">{{titleText}}</span>
+            <button *ngIf="showExport" type="button" (click)="exportPressed()" [disabled]="exportLoader" class="btn btn-secondary font7">Export <i *ngIf="exportLoader" class="fa fa-spinner fa-spin"></i></button>
+        </div>
+        <div class="col-sm-9" style="text-align: right;">
+            <ng-container *ngIf="searchType!='DMY'&&searchType!='customSearch'&&searchButton">
+                <mat-form-field style="margin-right: 1rem;" appearance="outline">
+                    <mat-date-range-input [rangePicker]="picker" [max]="maxDate">
+                        <input matStartDate [(ngModel)]="dateValues[0]">
+                        <input matEndDate [(ngModel)]="dateValues[1]">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+            </ng-container>
+            <ng-container *ngIf="searchType=='customSearch'">
+                <mat-form-field style="margin-right: 1rem;" appearance="outline">
+                    <mat-select [formControl]="inputOptionSelected">
+                        <ng-container *ngFor="let option of searchOptions">
+                            <mat-option [value]="option.value">{{option.name}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field style="margin-right: 1rem;" appearance="outline">
+                    <mat-date-range-input [rangePicker]="picker" [max]="maxDate">
+                        <input matStartDate [(ngModel)]="dateValues[0]">
+                        <input matEndDate [(ngModel)]="dateValues[1]">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+            </ng-container>
+            <ng-container *ngIf="searchHasInputOption">
+                <mat-form-field style="margin-right: 1rem;" appearance="outline">
+                    <input matInput [formControl]="inputSearchBox" placeholder="Search">
+                </mat-form-field>
+            </ng-container>
+            <ng-container *ngIf="searchButton">
+                <ng-container *ngIf="searchType!='DMY'&&searchType!='customSearch'">
+                    <button type="button" class="btn btn-primary font7" (click)="searchFunction()">Search</button>
+                </ng-container>
+                <ng-container *ngIf="searchType=='DMY'">
+                    <button type="button" class="btn btn-primary font7" (click)="searchObjFunction()">Search</button>
+                </ng-container>
+                <ng-container *ngIf="searchType=='customSearch'">
+                    <button type="button" class="btn btn-primary font7" (click)="searchCustomFunction()">Search</button>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="addButton">
+                <button type="button" class="btn btn-primary" (click)="addFunction()">Add</button>
+            </ng-container>
+        </div>
+    </div>
+</div>
+</div>

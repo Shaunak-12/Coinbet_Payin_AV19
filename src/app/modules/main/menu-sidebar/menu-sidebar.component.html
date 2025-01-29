@@ -1,0 +1,28 @@
+<!-- Brand Logo -->
+<a [routerLink]="['/']" class="brand-link">
+    <!-- <pf-image
+        src="assets/img/logo.png"
+        alt="AdminLTE Logo"
+        class="brand-image"
+        height="33"
+        width="33"
+        rounded
+        style="opacity: 0.8"
+        ></pf-image> -->
+        <!-- <span class="brand-text font-weight-light">{{compnayDetails.CompanyName}}</span> -->
+        <span class="brand-text" style="color: #fff;">PAYIN</span>
+    </a>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <nav style="overflow: hidden;margin-top: 1rem;">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <a href="/" class="nav-link">
+                  <p>{{userCompany}}</p>
+                </a>
+              </ul>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <app-menu-item *ngFor="let item of menu" [menuItem]="item" ></app-menu-item>
+            </ul>
+        </nav>
+    </div>

@@ -1,0 +1,45 @@
+<div class="bg-white full-height">
+    <div class="card-body">
+      <div style="text-align: center;margin-top: 3rem;margin-bottom: 3.5rem;">
+        <img src="../../../assets/img/pc-logo.png" style="height: 2rem;" >
+      </div>
+      <p class="login-box-msg">Welcome Back !</p>
+      <p class="login-box-msg-thin">Sign in to {{siteUrl}}</p>
+      <form [formGroup]="loginForm" (ngSubmit)="loginByAuth()">
+        <div class="input-group input-border mb-3">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <i-feather name="users"></i-feather>
+            </div>
+          </div>
+          <input formControlName="email" type="email" class="form-control" placeholder="Email" />
+          
+        </div>
+        <div class="input-group input-border mb-3">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <i-feather name="lock"></i-feather>
+            </div>
+          </div>
+          <input formControlName="password" type="{{passwordType}}" class="form-control" placeholder="Password" />
+          <div class="input-group-append" style="cursor: pointer;" (click)="togglePassVisible()">
+            <div class="input-group-text">
+              <i-feather [name]="eyeType"></i-feather>
+            </div>
+          </div>
+        </div>
+        <div class="row med-font mt-3">
+          <div class="col-12">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember" />
+              <label for="remember"> Remember Me </label>
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <button class="btn btn-primary btn-block" type="submit" value="submit" [disabled]="isAuthLoading">Log In &nbsp;<i *ngIf="isAuthLoading" class="fa fa-spinner fa-spin"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

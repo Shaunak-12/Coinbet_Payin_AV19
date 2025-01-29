@@ -1,0 +1,15 @@
+<app-title-header titleText="Statement List"></app-title-header>
+<div class="card" style="margin: 10px;padding: 1rem;padding-top: 0rem;">
+  <div style="text-align: right;margin-right: 0rem;margin-top: 0.5rem;">
+    <span type="button" class="text-right p-2" *ngIf="transferBtn" (click)="toggleTransferBtn()" style="font-weight: 500;color: #1C84EE;font-size:0.8rem">Transfer to Payout</span>
+    <ng-container *ngIf="!transferBtn">
+      <mat-form-field appearance="outline">
+        <input matInput type="number" [formControl]="payoutAmount" placeholder="Amount" [min]="1">
+      </mat-form-field>
+      <button type="button" [disabled]="payoutAmount.errors || trxLoading" class="btn btn-primary chevronbtn" style="font-size: 0.9rem;font-weight: 500;margin-right: 0.5rem;" (click)="initiateTrx()">Transfer</button>
+    </ng-container>
+  </div>
+  <app-title-header [exportLoader]="exportLoader" [showExport]="true" (onExport)="btnGridAction()" [startEndDates]="dateValue" [maxDate]="todayDate" [searchButton]="true" (onSearch)="searchSettlement($event)"></app-title-header>
+  <app-advance-table [DataLoader]="settlementCollumnLoading" [rowCount]="rowCount" [TableCollumnData]="settlementCollumns" [TableData]="settlementRows"></app-advance-table>
+  <app-advance-table-paginator [DataLoader]="settlementCollumnLoading" [pageNo]="currentQuery.PageNo" [paginatorBlock]="paginatorBlock" [rowCount]="rowCount" [pageCount]="pageCount" [selectedPageCount]="currentQuery.PageSize" [pagesTotal]="pagesTotal" (onPaginatorChange)="onPaginatorChange($event)"></app-advance-table-paginator>
+</div>

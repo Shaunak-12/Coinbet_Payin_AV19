@@ -1,0 +1,6 @@
+<div style="margin: 10px;">
+    <app-advance-title-head-new [showForm]="'true'" btnVal="Search" [titleText]="'Crypto Dashboard'" [dynamicForm]="dynamicControls" (onSubmitForm)="getSearchQuery($event)"></app-advance-title-head-new>
+    <br>
+    <app-card-list [DataLoader]="dashboardCountLoading" [cardData]="dashboardCount"></app-card-list>
+    </div>
+    

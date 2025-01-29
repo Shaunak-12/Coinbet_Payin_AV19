@@ -1,0 +1,28 @@
+<div class="container-fluid" *ngIf="!DataLoader && rowCount.t>=1">
+    <div style="padding: 0rem 0rem 0rem .5rem;">
+    <div class="row">
+        <div class="col-sm-3 font7">
+            <p style="margin-top: 1rem;"> Showing {{rowCount.f}} to {{rowCount.l}} of {{rowCount.t}} entries </p>
+        </div>
+        <div class="col-sm-6 font7" style="padding-top: 0.25rem;">            
+            <span *ngIf="pagesTotal!=1" class="d-flex text-white" style="align-items: center;justify-content: center;">
+                <div class="p-2 bg-white {{pageNo != 1? 'pagerBlock':'pagerBlockDisabled'}}" (click)="pnPressed(1)">Previous</div>
+                <ng-container *ngFor="let pager of paginatorBlock">
+                    <div class="p-2 {{pager != pageNo? 'bg-white' : 'bg-primary'}} pagerBlock" (click)="pagerPressed(pager)">{{pager}}</div>
+                </ng-container>
+                <div class="p-2 bg-white {{pageNo != pagesTotal? 'pagerBlock':'pagerBlockDisabled'}}" (click)="pnPressed(2)">Next</div>
+            </span>
+        </div>
+        <div class="col-sm-3 font7" style="text-align: right;">
+            <span style="margin-right: 0.5rem;">Items per page: </span>
+            <mat-form-field class="pgntr" style="width: 5rem;" appearance="outline">
+                <mat-select [(ngModel)]="UserPageCount" (selectionChange)="buttonPressed(UserPageCount)">
+                    <ng-container *ngFor="let option of pageCount">
+                        <mat-option [value]="option">{{option}}</mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    </div>
+</div>
